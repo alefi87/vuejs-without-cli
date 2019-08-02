@@ -115,7 +115,8 @@ module.exports = {
         test: /\.css$/,
         use: [
           'vue-style-loader',
-          'css-loader'
+          'css-loader',
+          'postcss-loader'
         ]
       }
     ]
@@ -228,3 +229,32 @@ yarn add -D node-sass sass-loader
 
 ### Configuration files
 
+#### webpack.config.js
+
+Only the `module` configuration has changed in this file.
+
+```javascript
+/* ... */
+module: {
+  rules: [
+    {
+      test: /\.m?jsx?$/,
+      use: 'babel-loader'
+    },
+    {
+      test: /\.vue$/,
+      use: 'vue-loader'
+    },
+    {
+      test: /\.(sa|sc|c)ss$/,
+      use: [
+        'vue-style-loader',
+        'css-loader',
+        'postcss-loader',
+        'sass-loader'
+      ]
+    }
+  ]
+},
+/* ... */
+```
