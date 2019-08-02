@@ -209,4 +209,22 @@ Omitting the unimportant (for this guide) settings of the `package.json`
     "webpack-dev-server": "^3.7.2"
   }
 }
+
 ```
+
+
+## Adding SASS/SCSS
+
+This section is based completely on the previous one and will only show the full configuration files that have _any_ changes. So if a file is omitted here it does not mean it's not required - it just isn't affected by adding SASS.
+
+### Packages
+
+```
+yarn add -D node-sass sass-loader 
+```
+
+[node-sass](https://github.com/sass/node-sass) is the package to compile CSS from SASS that runs on C (you may replace it with [dart-sass](https://github.com/sass/dart-sass) w
+[sass-loader](https://github.com/webpack-contrib/sass-loader) is the Webpack loader required to process SASS fileshich has its own benefits)
+
+### Configuration files
+
