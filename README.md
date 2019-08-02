@@ -1,5 +1,7 @@
 # Installing Vue.js without Vue CLI
 
+> Vue.js with Webpack, SASS, Jest and Vue-Standard ESLint configuration
+
 I love Vue.js and I love Vue CLI, but after a while of working with the enforced limitations of the folder structure and certain configurations in the projects created by the CLI, I wanted to set up a full project of my own where I am in full control of the packages and configurations.
 
 This is but a few quick - and somewhat simple - examples that build on top of one another on what I've achieved for myself. I've been trying to find blog posts on how to achieve the full functionality of a project created by Vue CLI, but manually, and I wasn't able to find any that cover it from start to finish. I realise now that it would be a long read if it's presented step by step, so this is _not a blog post_ and is meant mostly for people who at least _sort of_ know what they are doing, although it shouldn't be hard to figure out by looking up each configuration parameter for linked packages.
@@ -16,7 +18,7 @@ I'm not a very active developer, so if you find errors or if this becomes outdat
 
 ### Installing the required packages
 
-    yarn add -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env vue-style-loader css-loader html-webpack-plugin clean-webpack-plugin
+    yarn add -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env vue-style-loader css-loader html-webpack-plugin clean-webpack-plugin eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard eslint-plugin-vue babel-eslint
 
 [vue](https://github.com/vuejs/vue), [vue-loader](https://github.com/vuejs/vue-loader) and [vue-template-compiler](https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler) are the basic requirements to compile Vue files to JavaScript.
 
@@ -29,6 +31,8 @@ I'm not a very active developer, so if you find errors or if this becomes outdat
 [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) will inject the compiled JavaScript into our main HTML file and move it to the `dist` folder.
 
 [clean-webpack-plugin](https://github.com/johnagan/clean-webpack-plugin) is used to clean up the `dist` folder before every build.
+
+[eslint](https://eslint.org/), [eslint-config-standard](https://github.com/standard/eslint-config-standard), [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import), [eslint-plugin-node](https://github.com/mysticatea/eslint-plugin-node), [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise), [eslint-plugin-standard](https://github.com/standard/eslint-plugin-standard), [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) abd [babel-eslint](https://github.com/babel/babel-eslint) are all the required packages and their dependency plugins to get linting to your project with ESLint and Vue-flavored [Standard.js](https://standardjs.com/) linting configuration. If you're interested in the Vue-flavored part, have a look at the different possible configurations in the [eslint-plugin-vue configs](https://github.com/vuejs/eslint-plugin-vue/tree/master/lib/configs).
 
 ### Configuration files
 
@@ -127,6 +131,29 @@ module.exports = {
 }
 ```
 
+#### .eslintrc.js
+
+```javascript
+module.exports = {
+  root: true,
+  env: {
+    node: true
+  },
+  parserOptions: {
+    parser: 'babel-eslint'
+  },
+  extends: [
+    'standard',
+    'plugin:vue/recommended'
+  ],
+  rules: {
+    // we should always disable console logs and debugging in production
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+  }
+}
+```
+
 #### package.json
 Omitting the unimportant (for this guide) settings of the `package.json`
 ```javascript
@@ -139,9 +166,17 @@ Omitting the unimportant (for this guide) settings of the `package.json`
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.3",
     "html-webpack-plugin": "^3.2.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
