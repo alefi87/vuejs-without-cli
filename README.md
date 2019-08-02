@@ -1,9 +1,15 @@
 # Installing Vue.js without Vue CLI
 
-Quick links:
+I love Vue.js and I love Vue CLI, but after a while of working with the enforced limitations of the folder structure and certain configurations in the projects created by the CLI, I wanted to set up a full project of my own where I am in full control of the packages and configurations.
+
+This is but a few quick - and somewhat simple - examples that build on top of one another on what I've achieved for myself. I've been trying to find blog posts on how to achieve the full functionality of a project created by Vue CLI, but manually, and I wasn't able to find any that cover it from start to finish. I realise now that it would be a long read if it's presented step by step, so this is _not a blog post_ and is meant mostly for people who at least _sort of_ know what they are doing, although it shouldn't be hard to figure out by looking up each configuration parameter for linked packages.
+
+You can clone the repository and try running `yarn build` (or any other command from the `package.json`) from any of the top folders to see the result.
 
 - [Barebones Vue.js with Webpack and ESLint](#barebones-vuejs-with-webpack-and-eslint)
 
+
+I'm not a very active developer, so if you find errors or if this becomes outdated without me noticing, please shoot me an issue and a pull request in order to fix it as soon as possible.
 
 
 ## Barebones Vue.js with Webpack and ESLint
