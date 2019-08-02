@@ -16,9 +16,9 @@ I'm not a very active developer, so if you find errors or if this becomes outdat
 
 ## Barebones Vue.js with Webpack and ESLint
 
-### Installing the required packages
+### Packages
 
-    yarn add -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env vue-style-loader css-loader html-webpack-plugin clean-webpack-plugin eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard eslint-plugin-vue babel-eslint
+    yarn add -D vue vue-loader vue-template-compiler webpack webpack-cli webpack-dev-server babel-loader @babel/core @babel/preset-env vue-style-loader css-loader post-css-loader autoprefixer cssnano html-webpack-plugin clean-webpack-plugin eslint eslint-config-standard eslint-plugin-import eslint-plugin-node eslint-plugin-promise eslint-plugin-standard eslint-plugin-vue babel-eslint
 
 [vue](https://github.com/vuejs/vue), [vue-loader](https://github.com/vuejs/vue-loader) and [vue-template-compiler](https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler) are the basic requirements to compile Vue files to JavaScript.
 
@@ -27,6 +27,8 @@ I'm not a very active developer, so if you find errors or if this becomes outdat
 [babel-loader](https://github.com/babel/babel-loader), [@babel/core](https://babeljs.io/docs/en/next/babel-core.html) and [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) are required to transpile ES6 code to ES5.
 
 [vue-style-loader](https://github.com/vuejs/vue-style-loader) and [css-loader](https://github.com/webpack-contrib/css-loader) are two Webpack loaders that will figure out where the CSS is and inject it into the final HTML file.
+
+[post-css-loader](https://github.com/postcss/postcss-loader) is another Webpack loader that allows processing of CSS. Its plugins [autoprefixer](https://github.com/postcss/autoprefixer) and [cssnano](https://github.com/cssnano/cssnano) add vendor-specific prefixes to your CSS rules and minify the stylesheets.
 
 [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) will inject the compiled JavaScript into our main HTML file and move it to the `dist` folder.
 
@@ -131,6 +133,23 @@ module.exports = {
 }
 ```
 
+#### postcss.config.js
+
+```javascript
+if (process.env.NODE_ENV === 'production') {
+  module.exports = {
+    plugins: [
+      require('autoprefixer'),
+      require('cssnano')
+    ]
+  }
+} else {
+  module.exports = {
+    plugins: []
+  }
+}
+```
+
 #### .eslintrc.js
 
 ```javascript
@@ -161,15 +180,17 @@ Omitting the unimportant (for this guide) settings of the `package.json`
   "license": "MIT",
   "scripts": {
     "serve": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "build": "NODE_ENV=production webpack --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.1.0",
+    "cssnano": "^4.1.10",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -178,6 +199,7 @@ Omitting the unimportant (for this guide) settings of the `package.json`
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.3",
     "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^3.0.0",
     "vue": "^2.6.10",
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
