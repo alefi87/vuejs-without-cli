@@ -438,7 +438,7 @@ yarn add -D mini-css-extract-plugin style-resources-loader preload-webpack-plugi
 
 > Currently **preload-webpack-plugin** only supports Webpack 4 in the `3.0.0-beta.x versions`. At the moment of writing `3.0.0-beta.3` was released 9 months ago...
 
-[fiendly-errors-webpack-plugin](https://github.com/geowarin/friendly-errors-webpack-plugin) is making developer life easier by prioritising the different console errors in a sofisticated manner. Just have to remember to mute the Webpack when installing this!
+[fiendly-errors-webpack-plugin](https://github.com/geowarin/friendly-errors-webpack-plugin) is making developer life easier by prioritising the different console errors in a sofisticated manner. This works well with `webpack.ProgressPlugin()` - the combination will make the terminal behave like in a Vue CLI installed project: it will show building progress, clear when requireda and show prioritized errors first. Remember to mute the Webpack when installing this (`stats` and `devServer.quiet`)
 
 [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) copies files or folders directly to the build folder - useful for moving everything in the `public` folder.
 
