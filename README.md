@@ -11,6 +11,7 @@ You can clone the repository and try running `yarn build` (or any other command 
 - [Barebones Vue.js with Webpack and ESLint](#barebones-vuejs-with-webpack-and-eslint)
 - [Adding SASS](#adding-sass)
 - [Adding Jest for unit testing](#adding-jest-for-unit-testing)
+- [Adding some extras](#adding-some-extras)
 
 
 I'm not a very active developer, so if you find errors or if this becomes outdated without me noticing, please shoot me an issue and a pull request in order to fix it as soon as possible.
