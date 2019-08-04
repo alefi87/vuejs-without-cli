@@ -9,7 +9,8 @@ This is but a few quick - and somewhat simple - examples that build on top of on
 You can clone the repository and try running `yarn build` (or any other command from the `package.json`) from any of the top folders to see the result.
 
 - [Barebones Vue.js with Webpack and ESLint](#barebones-vuejs-with-webpack-and-eslint)
-- [Adding SASS/SCSS](#adding-sass)
+- [Adding SASS](#adding-sass)
+- [Adding Jest for unit testing](#adding-jest-for-unit-testing)
 
 
 I'm not a very active developer, so if you find errors or if this becomes outdated without me noticing, please shoot me an issue and a pull request in order to fix it as soon as possible.
@@ -37,7 +38,7 @@ I'm not a very active developer, so if you find errors or if this becomes outdat
 
 [eslint](https://eslint.org/), [eslint-config-standard](https://github.com/standard/eslint-config-standard), [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import), [eslint-plugin-node](https://github.com/mysticatea/eslint-plugin-node), [eslint-plugin-promise](https://github.com/xjamundx/eslint-plugin-promise), [eslint-plugin-standard](https://github.com/standard/eslint-plugin-standard), [eslint-plugin-vue](https://github.com/vuejs/eslint-plugin-vue) abd [babel-eslint](https://github.com/babel/babel-eslint) are all the required packages and their dependency plugins to get linting to your project with ESLint and Vue-flavored [Standard.js](https://standardjs.com/) linting configuration. If you're interested in the Vue-flavored part, have a look at the different possible configurations in the [eslint-plugin-vue configs](https://github.com/vuejs/eslint-plugin-vue/tree/master/lib/configs).
 
-> **Note:** The reason I'm installing `eslint@^5.0.0` is because `eslint-plugin-vue` hasn't released a version supporting `eslint@^6.0.0` yet and it breaks linting in your IDE.
+> **Note:** The reason I'm installing `eslint@<"6.0.0"` is because `eslint-plugin-vue` hasn't released a version supporting `eslint@^6.0.0` yet and it breaks linting in your IDE.
 
 ### Configuration files
 
@@ -311,9 +312,10 @@ yarn add -D jest vue-jest @vue/test-utils babel-core@^7.0.0-bridge.0 babel-jest 
 ```
 
 [jest](https://jestjs.io/) is the base package
-[vue-jest](https://github.com/vuejs/vue-jest) is the Vue single-file component files compiler for Jest
-[@vue/test-utils](https://vue-test-utils.vuejs.org/) is the official unit testing library for Vue.js
 
+[vue-jest](https://github.com/vuejs/vue-jest) is the Vue single-file component files compiler for Jest
+
+[@vue/test-utils](https://vue-test-utils.vuejs.org/) is the official unit testing library for Vue.js
 
 [babel-jest](https://github.com/facebook/jest/tree/master/packages/babel-jest) allows writing tests in ES6 syntax and [babel-core@^7.0.0-bridge.0](https://github.com/babel/babel-bridge) is a dependency package.
 
