@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import './styles.scss'
+import './styles.css'
 
 // eslint-disable-next-line no-new
 new Vue({

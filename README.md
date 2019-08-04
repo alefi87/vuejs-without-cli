@@ -1,6 +1,6 @@
 # Installing Vue.js without Vue CLI
 
-> Vue.js with Webpack, SASS, Jest and Vue-Standard ESLint configuration
+> Vue.js with Webpack hot reloading, SASS, Jest and Vue-Standard ESLint configuration
 
 I love Vue.js and I love Vue CLI, but after a while of working with the enforced limitations of the folder structure and certain configurations in the projects created by the CLI, I wanted to set up a full project of my own where I am in full control of the packages and configurations.
 
@@ -222,7 +222,9 @@ Omitting the unimportant (for this guide) settings of the `package.json`
 
 This section is based completely on the previous one and will only show the full configuration files that have _any_ changes. So if a file is omitted here it does not mean it's not required - it just isn't affected by adding SASS.
 
-### Packages
+### Additional packages
+
+These are the packages on top of the ones install previously.
 
 ```
 yarn add -D node-sass sass-loader 
@@ -305,7 +307,9 @@ Only the `module` configuration has changed in this file.
 
 ## Adding Jest for unit testing
 
-### Packages
+### Additional packages
+
+These are the packages on top of the ones install previously.
 
 ```
 yarn add -D jest vue-jest @vue/test-utils babel-core@^7.0.0-bridge.0 babel-jest jest-serializer-vue jest-transform-stub
