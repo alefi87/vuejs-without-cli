@@ -1,6 +1,10 @@
 <template>
   <div>
-    <input type="text" placeholder="Type something" v-model="message">
+    <input
+      v-model="message"
+      type="text"
+      placeholder="Type something"
+    >
     <p>{{ message }}</p>
   </div>
 </template>
@@ -20,4 +24,3 @@ p {
   font-family: 'Courier New', Courier, monospace;
 }
 </style>
-
