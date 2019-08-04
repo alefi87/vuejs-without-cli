@@ -10,8 +10,8 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest'
   },
   moduleNameMapper: { // webpack aliases
-    '^@/(.*)$': '<rootDir>/client/src/$1',
-    '^@engine/(.*)$': '<rootDir>/engine/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
+    '^~/(.*)$': '<rootDir>/$1'
   },
   snapshotSerializers: [
     'jest-serializer-vue'
